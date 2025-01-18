@@ -1,0 +1,10 @@
+stages:
+    - runSCAScanUsingSnyk
+
+run-sca-job:
+    stage: runSCAScanUsingSnyk
+    image: maven:3.8.5-openjdk-17-slim
+    script: |
+      SNYK_TOKEN='Token01'
+      export SNYK_TOKEN
+      mvn snyk:test -fn
